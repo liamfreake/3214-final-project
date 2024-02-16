@@ -1,2 +1,8 @@
 # i love minnie
-print("I love minnie")
+while True:
+    x = 0
+    if x < 10000000000000:
+        print("i love minnie")
+        x += 1
+    else:
+        break
