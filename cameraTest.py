@@ -7,14 +7,17 @@ import time
 
 vid = cv2.VideoCapture(1) 
 cap = cv2.VideoCapture(1)
+blur = int(input("How Much to Blur: "))
+if (blur%2) == 0:
+    blur += 1
 for i in range(1,101):
     ret,frame1 = cap.read()
+    median = cv2.medianBlur(frame1,blur) 
 while(True): 
-    cv2.imshow('img1',frame1) #display the captured image
+    cv2.imshow('Medium Blurring', median) #display the captured image
     if cv2.waitKey(1) & 0xFF == ord("q"): #save on pressing 'y' 
-        cv2.imwrite('images/c1.png',frame1)
+        cv2.imwrite('images/c1.png',median)
         cv2.destroyAllWindows()
-    
     # Capture the video frame 
     # by frame 
     ret, frame2 = vid.read() 
